@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css" type="text/css" >
+    <script src="jquery-3.4.1.min.js"></script>
+    <title>Coffee</title>
+</head>
+
+<body>
+    <header class="main_header" id="home">
+        <nav>
+            <div>
+                <img class="logo" src="img\Logo_AVBucks.png">
+            </div>
+            <div class="title">
+                <h1>AvBucks</h1>
+            </div>
+            <div class="menu_item">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Promo</a></li>
+                    <li><a href="index.html">About Us</a></li>
+                    <li><a href="index.html">Gallery</a></li>
+                    <li><a href="index.html">Create Member Card</a></li>
+                </ul>
+            </div>
+            <div class="dropDown">
+                    <a class="dropDownMenu">Menu</a>
+                    <div class="dropDownContent">
+                        <a href="Coffee.html">Coffee</a>
+                        <a href="Cookies and Dessert.html">Cookies and Dessert</a>
+                    </div>
+            </div>
+        </nav>
+        <div class="slogan">
+            <h1>How our coffee are made</h1>
+        </div>
+    </header>
+            
+    <div id="slider">
+        <button id="left">Left</button>
+            <div id="container">
+                <!-- <div class="mySlides"> -->
+                    <img  src="img/Process1.jpg" class="active">
+                    <!-- <div id="slideText">Choose Coffee Beans</div> -->
+                <!-- </div> -->
+                      
+                <!-- <div class="mySlides"> -->
+                    <img  src="img/Process2.jpg">
+                    <!-- <div id="slideText">Grind Coffee</div> -->
+                <!-- </div> -->
+            
+                <!-- <div class="mySlides"> -->
+                    <img src="img/Process3.jpg" >
+                    <!-- <div id="slideText">Brew It</div> -->
+                <!-- </div/> -->
+            </div>
+        <button id="right">Right</button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            //Slider
+            function slide_next(){
+                $curr = $('#container img.active');
+                $next = $curr.toggleClass().next();
+
+                if($next.length == 0) $('#container img:first-child').toggleClass('active');
+                else $next.toggleClass('active');
+            }
+            
+            function slide_prev(){
+                $curr = $('#container img.active');
+                $prev = $curr.toggleClass().prev();
+
+                if($prev.length == 0) $('#container img:last-child').toggleClass('active');
+                else $prev.toggleClass('active');
+            }
+
+            setInterval(slide_next, 2000);
+
+            $('#right').on('click', slide_next);
+
+
+            $('#left').on('click', slide_prev);
+        });
+    </script>
+
+    <div id="menuCoffeeList">
+        <h3 class="headerC">Coffee Menu</h3>
+        <div>
+            <img class="menuCoffee" src="img/Caramel Macchiato.jpg">Caramel Macchiato <label>[New]</label> $2.50
+            <span class="menuRow2">
+                <img class="menuCoffee" src="img/Iced Smoked Latte.jpg">Iced Smoked Latte <label>[New]</label> $3.00
+            </span>
+        </div>
+
+        <div>
+            <img class="menuCoffee" src="img/Iced Coffee Mocha.jpg">Iced Mochacinno <label>[Popular]</label> $2.45
+            <span class="menuRow2">
+                <img class="menuCoffee" src="img/Cappucino.jpg">Cappucino Latte <label>[Hot]</label> $2.65
+            </span>
+        </div>
+
+        <div>
+            <img class="menuCoffee" src="img/Iced Gingerbread Latte.jpg">Iced Gingeer Latte <label>[New]</label> $2.70
+            <span class="menuRow2">
+                <img class="menuCoffee" src="img/Vanilla Latte.jpg">Vanilla Latte $2.55
+            </span>
+        </div>
+    </div>
+
+    <div id="footer">
+        <label class="footerText">&copy;AvBucks</label>
+    </div>
+    
+    <script src="JavaScript.js"></script>
+</body>
+</html>
